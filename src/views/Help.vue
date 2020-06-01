@@ -40,23 +40,31 @@
           <b-container fluid class="box-text">
             <b-card-text>Mozes platiti karticom ako ti je tako lakse.
               Kada platis restoran sprema tvoju hranu, a nas dostavljac
-            dolazi sto pre.</b-card-text>
+              dolazi sto pre.</b-card-text>
           </b-container>
         </b-card>
       </b-col>
     </b-row>
 
-      <router-link :to="'/login'">
-        <h2 class="mt-3 mb-3 text-primary" style="text-decoration:underline;">
-          Spreman sam da porucim hranu!</h2>
-      </router-link>
+    <router-link v-if="this.user.loggedIn === false" :to="'/login'">
+      <h2 class="mt-3 mb-3 text-primary" style="text-decoration:underline;">
+        Spreman sam da porucim hranu!</h2>
+    </router-link>
+
+    <router-link v-else :to="'/explore'">
+      <h2 class="mt-3 mb-3 text-primary" style="text-decoration:underline;">
+        Spreman sam da porucim hranu!</h2>
+    </router-link>
 
   </b-container>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Help',
+  computed: mapGetters(['user']),
 };
 </script>
 

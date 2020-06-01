@@ -18,7 +18,7 @@
                 Za bilo kakvo pitanje ili zalbu mozete kontaktirati Has tim.</b-card-text>
             </b-container>
             <b-container class="box-btn">
-              <a href="/contact" class="text-primary">Kontaktiraj Has</a>
+              <a href="contact" class="text-primary">Kontaktiraj Has</a>
             </b-container>
           </b-card>
         </router-link>

@@ -41,7 +41,7 @@
     </template>
 
 <script>
-import axios from 'axios';
+import { mapActions } from 'vuex';
 
 export default {
   data() {
@@ -54,21 +54,22 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['login']),
     async submit() {
       if (this.form.username.length < 1 || this.form.password.length < 1) {
         this.Message = 'Fill in empty fields';
       } else {
         try {
-          const res = await axios.post('http://localhost:1234/login', this.form);
+          const res = await this.login(this.form.username, this.form.password);
           this.Message = res;
           if (res.data.msg) {
             this.Message = res.data.msg;
           } else {
             this.$cookie.set('user-token', res.data.token, { expires: '2h' });
-            this.$cookie.set('username', this.form.username, { expires: '2h' });
             this.$router.push('/explore');
           }
         } catch (err) {
+          console.log(err);
           this.Message = 'Wrong username or password';
         }
       }
