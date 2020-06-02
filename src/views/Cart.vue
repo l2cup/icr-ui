@@ -15,7 +15,7 @@
           <b-card-text class="mt-2 h3 left">Ukupno:</b-card-text>
           <b-card-text class="mt-2 h3 right">99999</b-card-text>
 
-          <b-btn class="mt-2 mb-2" variant="primary">Placanje</b-btn>
+          <b-btn :to="'/payment'" class="mt-2 mb-2" variant="primary">Placanje</b-btn>
         </b-container>
 
       </b-container>
